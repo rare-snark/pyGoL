@@ -9,6 +9,25 @@ import argparse
 # i       0   0   0
 # i+1     0   0   0
 
+def color(color_name, string):
+    color_codes = {
+        "black": "\033[30m",
+        "red": "\033[31m",
+        "green": "\033[32m",
+        "yellow": "\033[33m",
+        "blue": "\033[34m",
+        "magenta": "\033[35m",
+        "cyan": "\033[36m",
+        "white": "\033[37m",
+        "reset": "\033[0m"
+    }
+
+    if color_name not in color_codes or color_name is color_codes['reset']:
+        return string
+
+    return f"{color_codes[color_name]}{string}{color_codes['reset']}"
+
+
 def iterateGameState(gol1, gol2, ruleSet):
     # copying over to arr 2 for every iteration for comparison purposes
     for i in range(len(gol1)):
@@ -170,31 +189,43 @@ if __name__ == "__main__":
         type=float,
         help="Number of seconds between iterations. Default: 0.1125"
     )
+    agp.add_argument(
+        "-c",
+        "--color",
+        default="white",
+        type=str,
+        help="Change the color of the game text. Choices are black, red, green, yellow, blue, magenta, cyan, white"
+    )
     args = agp.parse_args()
     
     ruleSet = args.rule_set
-    # make program perpetual
-    while (True):
-        # initialize arrays with appropriate size
-        gols = initGols()
-        gol1 = gols[0]
-        gol2 = gols[1]
-        
-        # init gen
-        generation = 0
+    colorchoice = str(args.color).lower()
+    try:
+        # make program perpetual
         while (True):
-            same = iterateGameState(gol1, gol2, ruleSet)
+            # initialize arrays with appropriate size
+            gols = initGols()
+            gol1 = gols[0]
+            gol2 = gols[1]
 
-            # printing out game state
-            drawGame(gol1, ".", "■")
-            
-            # reinit game after 500 generations or once it turns stagnant
-            # TODO stagnancy may also come in the form of a game of oscilators so let's try to detect that in the future by keeping a small history of arrays
-            if (same or generation == args.generations): break
+            # init gen
+            generation = 0
+            while (True):
+                same = iterateGameState(gol1, gol2, ruleSet)
 
-            # sleep to make it appear animated to the user
-            # time.sleep(0.1125)
-            time.sleep(args.delay)
+                # printing out game state
+                drawGame(gol1, color(colorchoice, "."), color(colorchoice, "■"))
 
-            #increment generation
-            generation+=1
+                # reinit game after 500 generations or once it turns stagnant
+                # TODO stagnancy may also come in the form of a game of oscilators so let's try to detect that in the future by keeping a small history of arrays
+                if (same or generation == args.generations): break
+
+                # sleep to make it appear animated to the user
+                # time.sleep(0.1125)
+                time.sleep(args.delay)
+
+                #increment generation
+                generation+=1
+    except KeyboardInterrupt:
+        # Handle KeyboardInterrupt
+        pass
