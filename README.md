@@ -30,14 +30,17 @@ sudo cp gol.py /usr/bin/gol
 ```
 
 # Usage
-double click it or run it from a terminal window
+double click it or run it from a terminal window.
+
+When running from a terminal window, one may resize the window and the game will resize itself to fit the window upon resetting
+
+To stop the game from running hit `ctrl+c` or forcibly close the window.
 
 ```
 -rs RULESET, --rule-set RULESET
                 Defining game of life ruleset. Default: 'default' (original b3s23 game)
 -g GENERATIONS, --generations GENERATIONS
                 Maximum number of generations before ending a game of life. -1 for an infinite game. Default: 500
-
 -d DELAY, --delay DELAY
                 Number of seconds between iterations. Default: 0.1125
 ```
