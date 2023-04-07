@@ -1,6 +1,9 @@
 # pyGoL
 CLI Game of Life to fill your terminal windows. written in python.
 
+![default](https://github.com/rare-snark/pyGoL/blob/main/default.png)
+![several](https://github.com/rare-snark/pyGoL/blob/main/several.png)
+
 # Installation
 
 Get the latest version of [python](https://www.python.org/).
@@ -62,10 +65,15 @@ Below are the different rulesets that can be fed as arguments to the program usi
 
 Different rulesets are defined in code underneath the `ruleCheck()` function using an elif ladder and primitive integer arrays.
 
-The design is very human making it easy to edit and expand upon. The [there's a lot of different rules](https://conwaylife.com/wiki/List_of_Life-like_rules) that you can choose to implement if you so choose. I'm a big fan of `anneal` myself :).
+The design is very human making it easy to edit and expand upon. The there's a lot of [different rules for game of life](https://conwaylife.com/wiki/List_of_Life-like_rules) that you can choose to implement if you so choose.
+
+I'm a big fan of `anneal` myself :)
+![default](https://github.com/rare-snark/pyGoL/blob/main/anneal.png)
+so I chose to implement it myself.
 
 # TODO
-
+ - [ ] enable editing of the dead and living cell characters from the command line
+ - [ ] Toggle stats display
  - [ ] Accept input from a file
  - [ ] Output final gamestate to files
  - [ ] Make forever looping optional
