@@ -4,6 +4,14 @@ CLI Game of Life to fill your terminal windows. written in python.
 ![default](https://github.com/rare-snark/pyGoL/blob/main/default.png)
 ![several](https://github.com/rare-snark/pyGoL/blob/main/several.png)
 
+ToC:
+- [Installation](#installation)
+  - [Windows](#windows)
+  - [Linux](#linux)
+- [Usage](#usage)
+  - [Rulesets](#rulesets)
+- [TODO](#todo)
+
 # Installation
 
 Get the latest version of [python](https://www.python.org/).
@@ -15,8 +23,6 @@ Save `gol.py` to your machine.
 You are done.
 
 ## Linux
-
-Add the shebang `#!/usr/bin/env python` to the top of the file.
 
 Make the file executable:
 ```
@@ -32,9 +38,9 @@ sudo cp gol.py /usr/bin/gol
 # Usage
 double click it or run it from a terminal window.
 
-When running from a terminal window, one may resize the window and the game will resize itself to fit the window upon resetting
+When running from a terminal window, one may resize the window and the game will resize itself to fit the window upon resetting.
 
-To stop the game from running hit `ctrl+c` or forcibly close the window.
+To stop the game from running, press `ctrl+c` or forcibly close the window.
 
 ```
 -rs RULESET, --rule-set RULESET
@@ -47,7 +53,7 @@ To stop the game from running hit `ctrl+c` or forcibly close the window.
 
 ## Rulesets
 
-Rulesets are defined by the conditions for a cell to be born or to survive. THe original ruleset proposed by Conway consisted of birth when surrounded by 3 living cells and survival while surrounded by 2 or 3 living cells.
+Rulesets are defined by the conditions for a cell to be born or to survive. The original ruleset proposed by Conway consisted of birth when surrounded by 3 living cells and survival while surrounded by 2 or 3 living cells.
 
 Effective shorthand: B3/S23
 
@@ -68,9 +74,9 @@ Below are the different rulesets that can be fed as arguments to the program usi
 
 Different rulesets are defined in code underneath the `ruleCheck()` function using an elif ladder and primitive integer arrays.
 
-The design is very human making it easy to edit and expand upon. The there's a lot of [different rules for game of life](https://conwaylife.com/wiki/List_of_Life-like_rules) that you can choose to implement if you so choose.
+The design is very human making it easy to edit and expand upon. There's a lot of [different rules for game of life](https://conwaylife.com/wiki/List_of_Life-like_rules) that you can choose to implement if you so choose.
 
-I'm a big fan of `anneal` myself :)
+I'm a big fan of `anneal` myself
 ![default](https://github.com/rare-snark/pyGoL/blob/main/anneal.png)
 so I chose to implement it myself.
 
