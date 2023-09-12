@@ -81,3 +81,4 @@ so I chose to implement it myself.
  - [ ] Output final gamestate to files
  - [ ] Make forever looping optional
  - [ ] Implement more rulesets
+ - [ ] detect a dead game with oscilators
