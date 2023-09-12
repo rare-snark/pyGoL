@@ -146,14 +146,6 @@ if __name__ == "__main__":
         type=str,
         help="Defining game of life ruleset. Default: 'default' (original b3s23 game)"
     )
-    # agp.add_argument(
-    #     "-l",
-    #     "--loop",
-    #     default="y",
-    #     choices=["y","n"],
-    #     type=str,
-    #     help="whether or not the game loops infinitely"
-    # )
     agp.add_argument(
         "-g",
         "--generations",
@@ -173,28 +165,32 @@ if __name__ == "__main__":
     args = agp.parse_args()
     
     ruleSet = args.rule_set
-    # make program perpetual
-    while (True):
-        # initialize arrays with appropriate size
-        gols = initGols()
-        gol1 = gols[0]
-        gol2 = gols[1]
-        
-        # init gen
-        generation = 0
+    
+    try:
+        # make program perpetual
         while (True):
-            same = iterateGameState(gol1, gol2, ruleSet)
-
-            # printing out game state
-            drawGame(gol1, ".", "■")
+            # initialize arrays with appropriate size
+            gols = initGols()
+            gol1 = gols[0]
+            gol2 = gols[1]
             
-            # reinit game after 500 generations or once it turns stagnant
-            # TODO stagnancy may also come in the form of a game of oscilators so let's try to detect that in the future by keeping a small history of arrays
-            if (same or generation == args.generations): break
+            # init gen
+            generation = 0
+            while (True):
+                same = iterateGameState(gol1, gol2, ruleSet)
 
-            # sleep to make it appear animated to the user
-            # time.sleep(0.1125)
-            time.sleep(args.delay)
+                # printing out game state
+                drawGame(gol1, ".", "■")
+                
+                # reinit game after 500 generations or once it turns stagnant
+                if (same or generation == args.generations): break
 
-            #increment generation
-            generation+=1
+                # sleep to make it appear animated to the user
+                # time.sleep(0.1125)
+                time.sleep(args.delay)
+
+                #increment generation
+                generation+=1
+    except KeyboardInterrupt:
+        print("exiting...")
+    
