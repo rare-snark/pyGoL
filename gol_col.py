@@ -3,6 +3,7 @@ import os
 import random
 import time
 import argparse
+from blessings import Terminal
 # this is how one may think of the 2d arrays used in this program
 #         j-1 j   j+1
 # i-1     0   0   0
@@ -116,8 +117,8 @@ def ruleCheck(initial, ruleSet, n):
 def drawGame(golArr, deadCell, liveCell):
      for i in range(len(golArr)):
         for j in range(len(golArr[0])):
-            if (golArr[i][j]): print(liveCell,end="")
-            else: print(deadCell,end="")
+            if (golArr[i][j]): print(lc + liveCell + t.normal,end="")
+            else: print(dc + deadCell + t.normal,end="")
         print()
 
 def initGols(char_width):
@@ -134,6 +135,30 @@ def initGols(char_width):
     gols = [gol1, gol2]
 
     return gols
+
+def get_color_handle(t, input):
+    output = t.white
+    if input == "black":
+        output = t.black
+    elif input == "red":
+        output = t.red
+    elif input == "green":
+        output = t.green
+    elif input == "yellow":
+        output = t.yellow
+    elif input == "blue":
+        output = t.blue
+    elif input == "magenta":
+        output = t.magenta
+    elif input == "cyan":
+        output = t.cyan
+    # autoset at the top
+    # elif input == "white":
+    #     input = t.white
+    elif input.isnumeric():
+        output = t.color(int(input))
+    
+    return output
 
 if __name__ == "__main__":
     agp = argparse.ArgumentParser(description="CLI game of life simulator written in python. Fills out the size of your terminal window")
@@ -176,15 +201,35 @@ if __name__ == "__main__":
         type=str,
         help="character used to represent a dead cell in the simulation"
     )
+    agp.add_argument(
+        "-lc",
+        "--living-colour",
+        default="white",
+        type=str,
+        help="color of character used to represent a living cell"
+    )
+    agp.add_argument(
+        "-dc",
+        "--dead-colour",
+        default="white",
+        type=str,
+        help="color of character used to represent a dead cell"
+    )
     args = agp.parse_args()
     
     ruleSet = args.rule_set
-   
+
     dead_cell = args.dead
     living_cell = args.living
+   
     if (len(dead_cell) != len(living_cell)):
         print("cells must be the same length")
         exit()
+    
+    t = Terminal()
+    lc = get_color_handle(t, args.living_colour)
+    dc = get_color_handle(t, args.dead_colour)
+    
     try:
         # make program perpetual
         while (True):
@@ -211,5 +256,3 @@ if __name__ == "__main__":
                 generation+=1
     except KeyboardInterrupt:
         print("exiting...")
-    
-
