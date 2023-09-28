@@ -1,0 +1,26 @@
+usage: gol_col.py [-h] [-rs RULESET] [-g GENERATIONS] [-d DELAY] [-l LIVING]
+                  [-de DEAD] [-lc LIVING_COLOUR] [-dc DEAD_COLOUR]
+
+CLI game of life simulator written in python. Fills out the size of your
+terminal window
+
+options:
+  -h, --help            show this help message and exit
+  -rs RULESET, --rule-set RULESET
+                        Defining game of life ruleset. Default: 'default'
+                        (original b3s23 game)
+  -g GENERATIONS, --generations GENERATIONS
+                        Maximum number of generations before ending a game of
+                        life. -1 for an infinite game. Default: 500
+  -d DELAY, --delay DELAY
+                        Number of seconds between iterations. Default: 0.1125
+  -l LIVING, --living LIVING
+                        character used to represent a living cell in the
+                        simulation
+  -de DEAD, --dead DEAD
+                        character used to represent a dead cell in the
+                        simulation
+  -lc LIVING_COLOUR, --living-colour LIVING_COLOUR
+                        color of character used to represent a living cell
+  -dc DEAD_COLOUR, --dead-colour DEAD_COLOUR
+                        color of character used to represent a dead cell
