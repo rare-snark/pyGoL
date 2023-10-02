@@ -103,8 +103,7 @@ so I chose to implement it myself.
 
 # TODO
  - [x] enable editing of the dead and living cell characters from the command line
- - [x] colour output for linux
- - [ ] colour output for windows
+ - [x] colour output
  - [x] >1 char wide cells
  - [ ] Toggle stats display
  - [ ] Accept input from a file
@@ -112,6 +111,8 @@ so I chose to implement it myself.
  - [ ] Make forever looping optional
  - [ ] Implement more rulesets
  - [ ] detect a dead game with oscilators
+   - could be done by saving previous gamestate arrays in an array of arrays
+   - consider memory overhead
 
 # Gallery
 
