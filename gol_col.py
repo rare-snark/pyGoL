@@ -77,41 +77,34 @@ def iterateGameState(gol1, gol2, ruleSet):
     print(statline)
     return same
 
-def ruleCheck(initial, ruleSet, n):
-    if (ruleSet == "" or ruleSet == "default"):
-        b = [3]
-        s = [2, 3]
-    elif (ruleSet=="replicator"):
-        b = [1, 3, 5, 7]
-        s = [1, 3, 5, 7]
-    elif (ruleSet == "seeds"):
-        b = [2]
-        s = []
-    elif (ruleSet == "blank" or ruleSet == "kuhaku"):
-        b = [2, 5]
-        s = [4]
-    elif (ruleSet == "life-without-death" or ruleSet == "LWD" or ruleSet == "inkspots" or ruleSet == "flakes"):
-        b = [3]
-        s = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    elif (ruleSet == "34" or ruleSet == "34-life" or ruleSet == "34L"):
-        b = [3, 4]
-        s = [3, 4]
-    elif (ruleSet == "diameoba"):
-        b = [3, 5, 6, 7, 8]
-        s = [5, 6, 7, 8]
-    elif (ruleSet == "block" or ruleSet == "2x2"):
-        b = [3, 6]
-        s = [1, 2, 5]
-    elif (ruleSet == "morley" or ruleSet == "move"):
-        b = [3, 6, 8]
-        s = [2, 4, 5]
-    elif (ruleSet == "anneal" or ruleSet == "twisted-majority-rule" or ruleSet == "TMR"):
-        b = [4, 6, 7, 8]
-        s = [3, 5, 6, 7, 8]
-    elif (ruleSet == "majority" or ruleSet == "vote"):
-        b = [5, 6, 7, 8]
-        s = [4, 5, 6, 7, 8]
-    
+def ruleCheck(initial: int, ruleSet: str, n: int) -> int:
+    ruleSets = {
+        ""                      : [[3],[2,3]],
+        "default"               : [[3],[2,3]],
+        "replicator"            : [[1,3,5,7],[1,3,5,7]],
+        "seeds"                 : [[2],[]],
+        "blank"                 : [[2,5],[4]],
+        "kuhaku"                : [[2,5],[4]],
+        "life-without-death"    : [[3],[1,2,3,4,5,6,7,8,9]],
+        "LWD"                   : [[3],[1,2,3,4,5,6,7,8,9]],
+        "inkspots"              : [[3],[1,2,3,4,5,6,7,8,9]],
+        "flakes"                : [[3],[1,2,3,4,5,6,7,8,9]],
+        "34"                    : [[3,4],[3,4]],
+        "34-life"               : [[3,4],[3,4]],
+        "34L"                   : [[3,4],[3,4]],
+        "diameoba"              : [[3,5,6,7,8],[5,6,7,8]],
+        "block"                 : [[3,6],[1,2,5]],
+        "2x2"                   : [[3,6],[1,2,5]],
+        "morley"                : [[3,6,8],[2,4,5]],
+        "move"                  : [[3,6,8],[2,4,5]],
+        "anneal"                : [[4,6,7,8],[3,5,6,7,8]],
+        "twisted-majority-rule" : [[4,6,7,8],[3,5,6,7,8]],
+        "TMR"                   : [[4,6,7,8],[3,5,6,7,8]],
+        "majority"              : [[5,6,7,8],[4,5,6,7,8]],
+        "vote"                  : [[5,6,7,8],[4,5,6,7,8]],
+    }
+    b = ruleSets[ruleSet][0]
+    s = ruleSets[ruleSet][1]
     return 1 if (n in b and initial == 0) or (n in s and initial == 1) else 0
 
 def drawGame(golArr, deadCell, liveCell):

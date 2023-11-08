@@ -3,7 +3,6 @@ CLI Game of Life to fill your terminal windows. written in python.
 
 ![default](./images/default.png)
 ![several](./images/several.png)
-Now with colour and wide cell support!
 ![demo](./images/colour_wide_cell_demo.png)
 
 ToC:
