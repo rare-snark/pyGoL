@@ -92,7 +92,7 @@ Below are the different rulesets that can be fed as arguments to the program usi
 |`majority` `vote`|B34678/S35678|stabilizes into blobs|
 |`anneal` `twisted-majority-rule` `TMR`|B5678/S45678|modification of the previous, does not stabilize|
 
-Different rulesets are defined in code underneath the `ruleCheck()` function using an elif ladder and primitive integer arrays.
+Different rulesets are defined in code underneath the `ruleCheck()` function using a dictionary and primitive integer arrays.
 
 The design is very human making it easy to edit and expand upon. There's a lot of [different rules for game of life](https://conwaylife.com/wiki/List_of_Life-like_rules) that you can choose to implement if you so choose.
 
