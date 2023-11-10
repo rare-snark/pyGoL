@@ -115,7 +115,8 @@ so I chose to implement it myself.
 
 # Gallery
 
-![anneal](./images/anneal.png)
+![golThumbs](./images/golThumbs.png)
 ![demo](./images/colour_wide_cell_demo.png)
 ![default](./images/default.png)
 ![several](./images/several.png)
+![anneal](./images/anneal.png)
