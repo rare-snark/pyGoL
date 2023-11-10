@@ -108,11 +108,13 @@ def ruleCheck(initial: int, ruleSet: str, n: int) -> int:
     return 1 if (n in b and initial == 0) or (n in s and initial == 1) else 0
 
 def drawGame(golArr, deadCell, liveCell):
-     for i in range(len(golArr)):
+    output = ""
+    for i in range(len(golArr)):
         for j in range(len(golArr[0])):
-            if (golArr[i][j]): print(lc + liveCell + t.normal,end="")
-            else: print(dc + deadCell + t.normal,end="")
-        print()
+            if (golArr[i][j]): output += lc + liveCell + t.normal #print(lc + liveCell + t.normal,end="")
+            else: output += dc + deadCell + t.normal #print(dc + deadCell + t.normal,end="")
+        output += "\n"
+    print(output[:-1])
 
 def initGols(char_width):
     size = os.get_terminal_size()

@@ -1,6 +1,8 @@
 # pyGoL
 CLI Game of Life to fill your terminal windows. written in python.
 
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
 ![default](./images/default.png)
 ![several](./images/several.png)
 ![demo](./images/colour_wide_cell_demo.png)
