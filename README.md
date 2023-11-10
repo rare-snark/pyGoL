@@ -119,7 +119,4 @@ so I chose to implement it myself.
 ![demo](./images/colour_wide_cell_demo.png)
 ![default](./images/default.png)
 ![several](./images/several.png)
-<<<<<<< HEAD
 ![anneal](./images/anneal.png)
-=======
->>>>>>> refs/remotes/origin/main
